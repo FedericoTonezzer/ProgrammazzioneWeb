@@ -1,0 +1,46 @@
+@import url(./color.css);
+
+/*
+*	POPUP
+*/
+.popup {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: none;
+	opacity: 0;
+	z-index: 1;
+}
+
+.popup.visible {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--darkalpha);
+	opacity: 1;
+	transition: opacity 100ms linear;
+}
+
+.popup > div {
+	width: 400px;
+	height: 200px;
+	background-color: var(--white);
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--border);
+	border-radius: 5px;
+}
+
+.popup > div > div {
+	padding: 10px;
+}
+
+.popup > div > div:nth-child(1) h4 {
+	margin: auto;
+}
+
+.popup > div > div:nth-child(2) {
+	flex-grow: 1;
+}

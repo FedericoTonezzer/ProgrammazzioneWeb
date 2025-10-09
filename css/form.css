@@ -1,0 +1,266 @@
+@import url(./color.css);
+@import url(./font.css);
+
+/*
+*	FIELDSET
+*/
+form fieldset {
+	border: 1px solid var(--border);
+}
+
+form fieldset > legend {
+	padding: 0 10px;
+}
+
+form fieldset.noborder {
+	padding: 10px 0;
+	border: 0;
+}
+
+form fieldset.noborder > legend {
+	position: relative;
+	padding: 0;
+	height: 40px;
+	font-size: 20px;
+	font-weight: 600;
+	color: var(--textbold);
+	display: flex;
+	align-items: center;
+}
+
+form fieldset.noborder > legend::before {
+	content: "";
+	position: absolute;
+	bottom: 5px;
+	height: 2px;
+	width: 27px;
+	border-radius: 8px;
+	background-color: var(--primary);
+}
+
+form fieldset[disabled] {
+	opacity: 0.5;
+}
+
+/*
+*	LABEL
+*/
+form .input-field > label {
+	font-weight: 500;
+	color: var(--textprimary);
+	display: flex;
+	align-items: center;
+	height: 30px;
+}
+
+/* Seleziona le label che sono immediatamente seguite da un qualsiasi elemento required o error (che sono input o select) */
+form .input-field > label:has(+ *.error):after {
+	content: " *";
+	color: var(--red);
+}
+
+form .input-field > label:has(+ *[required]):after {
+	content: " *";
+	color: var(--orange);
+}
+
+/*
+* INPUT TYPE[TEXT]	
+* INPUT TYPE[NUMBER]
+* INPUT TYPE[DATE]
+* INPUT TYPE[EMAIL]
+* INPUT TYPE[PASSWORD]
+*/
+
+form .input-field > textarea,
+form .input-field > input[type="text"],
+form .input-field > input[type="number"],
+form .input-field > input[type="date"],
+form .input-field > input[type="datetime-local"],
+form .input-field > input[type="email"],
+form .input-field > input[type="password"] {
+	height: 40px;
+	width: 100%;
+	font-family: inherit;
+	border: 0;
+	border-bottom: 1px solid var(--border);
+	padding: 1px 10px;
+	outline: none;
+	box-sizing: border-box;
+}
+
+form .input-field > textarea:focus-visible,
+form .input-field > input[type="text"]:focus-visible,
+form .input-field > input[type="number"]:focus-visible,
+form .input-field > input[type="date"]:focus-visible,
+form .input-field > input[type="datetime-local"]:focus-visible,
+form .input-field > input[type="email"]:focus-visible,
+form .input-field > input[type="password"]:focus-visible {
+	border-bottom-color: var(--border-active);
+}
+
+form .input-field > textarea.error,
+form .input-field > input[type="text"].error,
+form .input-field > input[type="number"].error,
+form .input-field > input[type="date"].error,
+form .input-field > input[type="datetime-local"].error,
+form .input-field > input[type="email"].error,
+form .input-field > input[type="password"].error {
+	border-bottom: 1px solid var(--red) !important;
+	color: var(--red) !important;
+	font-weight: 600 !important;
+}
+
+form .input-field > textarea[disabled],
+form .input-field > input[disabled] {
+	color: var(--grey);
+}
+
+form .input-field > textarea[color="green"],
+form .input-field > input[color="green"] {
+	color: var(--green);
+}
+
+form .input-field > textarea[color="red"],
+form .input-field > input[color="red"] {
+	color: var(--red);
+}
+
+form .input-field > textarea[color="orange"],
+form .input-field > input[color="orange"] {
+	color: var(--orange);
+}
+
+/*
+* Additional customization for login form
+*/
+form .input-field > input[type="password"] {
+	font: large Verdana, sans-serif;
+	letter-spacing: 1px;
+	-webkit-text-security: disc;
+}
+
+form .input-field > input[type="password"]::placeholder {
+	font-family: titillium, roboto, sans-serif;
+	font-size: 13px;
+	letter-spacing: initial;
+}
+
+form.login .input-field > input {
+	border: 1px solid var(--border);
+	border-radius: 4px;
+}
+
+form.login .input-field > input:focus-visible {
+	border-color: var(--border-active);
+}
+
+form.login .input-field > input.error {
+	border: 1px solid var(--red) !important;
+}
+
+/*
+*	TEXTAREA
+*/
+form .input-field > textarea {
+	height: initial;
+}
+
+/*
+*	INPUT TYPE[CHECK]
+*	INPUT TYPE[CHECK]>SWITCH
+*/
+form .checkbox-field,
+form .switch-field {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+form .checkbox-field > input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	/*accent-color: #10b981;*/
+}
+
+form .checkbox-field > input[type="checkbox"]:hover,
+form .switch-field > input[type="checkbox"]:hover {
+	cursor: pointer;
+}
+
+form .switch-field > input[type="checkbox"] {
+	--bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+	width: 40px;
+	height: 20px;
+	background-image: var(--bs-form-switch-bg);
+	background-position: left center;
+	border-radius: 2em;
+	transition: background-position 0.15s ease-in-out;
+	background-color: var(--white);
+	border: 1px solid var(--border);
+	appearance: none;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+form .switch-field > input[type="checkbox"]:checked {
+	background-position: right center;
+	--bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+	background-color: var(--primary);
+}
+
+/*
+*	INPUT TYPE[RADIO]
+*/
+
+form .radio-field {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+form .radio-field > input[type="radio"] {
+	width: 20px;
+	height: 20px;
+	margin: 3px;
+	/*accent-color: #10b981;*/
+}
+
+form .radio-field > input[type="radio"]:hover {
+	cursor: pointer;
+}
+
+/*
+*	SELECT
+*/
+
+form .select-field > select {
+	height: 40px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: inherit;
+	border: 0;
+	border-bottom: 1px solid var(--border);
+	outline: none;
+}
+
+form .select-field > select.error {
+	border-bottom: 1px solid var(--red) !important;
+	color: var(--red) !important;
+}
+
+form .select-field > select[color="green"] {
+	color: var(--green);
+}
+
+form .select-field > select[color="red"] {
+	color: var(--red);
+}
+
+form .select-field > select[color="orange"] {
+	color: var(--orange);
+}
+
+form .select-field > select > option {
+	color: initial !important; /* evita la colorazione rossa degli elementi dropdown in caso di .error*/
+}

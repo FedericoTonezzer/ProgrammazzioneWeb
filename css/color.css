@@ -1,0 +1,81 @@
+/*
+ * Variabili globali CSS per il setting del colore primario
+ * In questo modo è più semplice da cambiare
+ */
+:root {
+	--white: #ffffff;
+	--border: #d5d5d5;
+	--border-active: #858484;
+	--textprimary: #2e2e2e;
+	--textbold: #333;
+	--red: #f73e5a;
+	--orange: #f57f17;
+	--green: #008758;
+	--grey: #aaaaaa;
+	--blue: #0073e6;
+	--indigo: #554dff;
+	--purple: #9e99ff;
+	--pink: #ffd1da;
+	--yellow: #ffda73;
+	--lime: #00cc85;
+	--teal: #0bd9d2;
+	--cyan: #00fff7;
+	--cornflower: #4070f4;
+
+	--darkalpha: rgba(51, 51, 51, 0.9);
+
+	--primary: var(--cornflower);
+	--primary-hover: color-mix(in srgb, var(--primary) 85%, black); /* Miscela l'85% di --primary con del nero */
+}
+
+*[color] {
+	color: var(--white) !important;
+}
+
+*[color="green"] {
+	background-color: var(--green) !important;
+}
+
+*[color="red"] {
+	background-color: var(--red) !important;
+}
+
+*[color="orange"] {
+	background-color: var(--orange) !important;
+}
+
+*[color="grey"] {
+	background-color: var(--grey) !important;
+}
+
+*[color="blue"] {
+	background-color: var(--blue) !important;
+}
+
+*[color="indigo"] {
+	background-color: var(--indigo) !important;
+}
+
+*[color="purple"] {
+	background-color: var(--purple) !important;
+}
+
+*[color="yellow"] {
+	background-color: var(--yellow) !important;
+}
+
+*[color="lime"] {
+	background-color: var(--lime) !important;
+}
+
+*[color="teal"] {
+	background-color: var(--teal) !important;
+}
+
+*[color="cyan"] {
+	background-color: var(--cyan) !important;
+}
+
+*[color="pink"] {
+	background-color: var(--pink) !important;
+}

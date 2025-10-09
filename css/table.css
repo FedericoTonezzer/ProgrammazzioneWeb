@@ -1,0 +1,117 @@
+@import url(./color.css);
+
+/*
+*	TABELLA
+*/
+div:has(> table) > table {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+table {
+	border-collapse: collapse;
+	table-layout: fixed;
+	position: relative;
+	width: 100%;
+}
+
+table[disabled]::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--greyalpha);
+	z-index: 1;
+}
+
+table tr {
+	border-bottom: 1px solid var(--border);
+}
+
+table > thead {
+	position: sticky;
+	top: 0; /* Don't forget this, required for the stickiness */
+	background-color: var(--white);
+	z-index: 1;
+}
+
+table th,
+table td {
+	padding: 0 10px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+table td {
+	font-size: 14px;
+}
+
+table td[colspan] {
+	padding: 0 10px;
+}
+
+table tr {
+	height: 30px;
+}
+
+table tr:last-child {
+	border-bottom: 2px solid var(--border);
+}
+
+/* Solo quelle con figlio diretto > button */
+table td:has(> button) {
+	overflow: initial;
+	text-overflow: initial;
+}
+
+table td > button[icon].small[hint]::after {
+	right: 44px;
+	left: unset;
+}
+
+table th[align="right"],
+table td[align="right"] {
+	text-align: right;
+}
+
+table td:has(> button) > * table th[align="right"] > *,
+table td[align="right"] > * {
+	float: right;
+}
+
+table th,
+table th[align="left"],
+table td[align="left"] {
+	text-align: left;
+}
+
+table th[align="left"] > *,
+table td[align="left"] > * {
+	float: left;
+}
+
+table th[align="center"],
+table td[align="center"] {
+	text-align: center;
+}
+
+table tbody > tr:nth-child(even) {
+	background-color: rgba(60, 63, 77, 0.05);
+}
+
+table tbody > tr:hover {
+	background-color: rgba(60, 63, 77, 0.2);
+	cursor: pointer;
+}
+
+table tbody > tr:has(> td[colspan]) {
+	height: 50px;
+	text-align: center;
+	font-weight: bold;
+}
+
+table tbody > tr[color] button.nobg > div:first-child {
+	filter: brightness(0) invert(1);
+}
