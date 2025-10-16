@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="../css/common.css"/>
-        <title>Calcolo prezzo ristorante</title>
-    </head>
-    <body>
-        <form class="container">
-            <!--HEADER-->
-            <header>
-                <div class="title center">
-                    <h2>Calcolo prezzo ristorante</h2>
-                </div>
-            </header>
-            <!--COMPONENTI DEL FORM-->
-            <div>
-                <div class="input-field">
-                    <label for="txtPrimi">Quantità dei primi</label>
-                    <input type="number" id="txtPrimi" min="0" max="100" value="0"/>
-                </div>
-                <div class="input-field">
-                    <label for="txtSecondi">Quantità dei secondi</label>
-                    <input type="number" id="txtSecondi" min="0" max="100" value="0"/>
-                </div>
-            </div>
-            <!--FOOTER-->
-            <footer>
-                <div class="left">
-                    <button type="button" id="btnCalcola" icon="calc">Calcola prezzo</button>
-                </div>
-                <div class="right">
-                    <div class="total" id="lblTotale">0.00 EUR</div>
-                </div>
-            </footer>
-        </form>
-    </body>
+  <head>
+    <link rel="stylesheet" href="../css/common.css" />
+    <script src="./js/es1.js"></script>
+    <title>Calcolo prezzo ristorante</title>
+  </head>
+  <body>
+    <form class="container">
+      <!--HEADER-->
+      <header>
+        <div class="title center">
+          <h2>Calcolo prezzo ristorante</h2>
+        </div>
+      </header>
+      <!--COMPONENTI DEL FORM-->
+      <div>
+        <div class="input-field">
+          <label for="txtPrimi">Quantità dei primi</label>
+          <input type="number" id="txtPrimi" min="0" max="100" value="0" required onblur="validateNumberField(this)" />
+        </div>
+        <div class="input-field">
+          <label for="txtSecondi">Quantità dei secondi</label>
+          <input type="number" id="txtSecondi" min="0" max="100" value="0" required onblur="validateNumberField(this)" />
+        </div>
+        <div class="checkbox-field">
+          <label for="chkSalaRiservata">Sala riservata</label>
+          <input type="checkbox" id="chkSalaRiservata" />
+        </div>
+      </div>
+      <!--FOOTER-->
+      <footer>
+        <div class="left">
+          <button type="button" id="btnCalcola" icon="calc" onclick="btnCalcola_Click()">Calcola prezzo</button>
+        </div>
+        <div class="right">
+          <div class="total" id="lblTotale">0.00 EUR</div>
+        </div>
+      </footer>
+    </form>
+  </body>
 </html>
