@@ -51,17 +51,24 @@ function calcolaPercentuale(value, perc) {
 
 // controllo dati obbligatori
 function checkData(txtPrimi, txtSecondi) {
-  let valido;
-  // --> && AND - || --> OR
-  if (txtPrimi.vale == "" || txtSecondi == "") {
-    valido = false;
-  } else {
-    valido = true;
-  }
+  //valido i primi
+  let primiValidi = txtPrimi.checkValidity();
+  //valido i secondi
+  let secondiValidi = txtSecondi.checkValidity();
+  //se i primi e i secondi sono validi la form è valida
+  let valido = primiValidi && secondiValidi;
+
   return valido;
 }
 
 function validateNumberField(txtNumberTextBox) {
+  //se la txt non ha valore ristabilisco quello di default
+  if (txtNumberTextBox.value == "") {
+    if (txtNumberTextBox.hasAttribute("min")) {
+      txtNumberTextBox.value = txtNumberTextBox.min;
+    }
+  }
+
   let errorClass = "error";
 
   let isValida = txtNumberTextBox.checkValidity(); //controllo la validità
