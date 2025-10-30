@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/common.css" />
+    <script src="./js/es.4js"></script>
+    <script src="../js/utils/formutils.js"></script>
+    <title>Calcolo biglietto</title>
+  </head>
+  <body>
+    <form class="container">
+      <!--HEADER-->
+      <header>
+        <div class="title center">
+          <h2>Calcolo biglietto</h2>
+        </div>
+      </header>
+      <!--COMPONENTI DEL FORM-->
+      <div>
+        <div class="cols">
+          <div class="select-field">
+            <label for="SelectTpoSettore">Tipo Settore</label>
+            <select id="SelectTpoSettore">
+              <option value="" selected disabled>Curva primo anello</option>
+              <option value="">Curva secondo anello</option>
+              <option value="">Tribuna centrale primo anello</option>
+              <option value="">Tribuna centrale secondo anello</option>
+              <option value="">Tribuna laterale primo anello</option>
+              <option value="">Tribuna laterale secondo anello</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="select-field">
+            <label for="SelectTipoPartita">Tipo Partita</label>
+            <select id="SelectTipoPartita">
+              <option value="" selected disabled>Campionato squadre top</option>
+              <option value="">Campionato squadre normal</option>
+              <option value="">Campionato squadre low level</option>
+              <option value="">Champions league</option>
+            </select>
+          </div>
+          <div class="select-field">
+            <label for="SelectTipoSpettatore">Tipo Spettatore</label>
+            <select id="SelectTipoSpettatore">
+              <option value="" selected disabled>Adulto</option>
+              <option value="">Donna</option>
+              <option value="">Under 24</option>
+              <option value="">Under 16</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!--FOOTER-->
+      <footer>
+        <div class="left">
+          <button type="button" id="btnCalcola" icon="calc" onclick="btnCalcola_Click()">Calcola prezzo</button>
+        </div>
+        <div class="right">
+          <div class="total" id="lblTotale">0.00 EUR</div>
+        </div>
+      </footer>
+    </form>
+  </body>
+</html>
