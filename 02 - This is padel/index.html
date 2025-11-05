@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/common.css" />
+    <script src="./js/es1.js"></script>
+    <title>This is padel</title>
+  </head>
+  <body>
+    <form class="container">
+      <!--HEADER-->
+      <header>
+        <div class="title center">
+          <h2>This is padel</h2>
+        </div>
+      </header>
+      <!--COMPONENTI DEL FORM-->
+      <div>
+        <div class="input-field">
+          <label for="txtPrimi">Costo base abbonamento</label>
+          <input
+            type="number"
+            id="txtPrimi"
+            min="0"
+            max="100"
+            value="0"
+            required
+            onblur="validateNumberField(this)"
+          />
+        </div>
+        <div class="switch-field">
+          <label for="">Sconto donna 50%</label>
+          <input type="checkbox" id="" />
+        </div>
+        <fieldset id="">
+          <legend>Altri sconti</legend>
+          <div class="checkbox-field">
+            <label for="">Iscritto società sportiva</label>
+            <input type="checkbox" id="" />
+          </div>
+          <fieldset id="">
+            <legend>Fascia di età</legend>
+            <div class="radio-field">
+              <label for="">Under 18</label>
+              <input type="radio" id="" name="" checked />
+            </div>
+            <div class="radio-field">
+              <label for="">18-25</label>
+              <input type="radio" id="" name="" checked />
+            </div>
+            <div class="radio-field">
+              <label for="">65+T</label>
+              <input type="radio" id="" name="" checked />
+            </div>
+          </fieldset>
+          <fieldset id="">
+            <legend>Abbonato 2015</legend>
+            <div class="checkbox-field">
+              <label for="">SI/NO</label>
+              <input type="checkbox" id="" />
+            </div>
+            <div class="checkbox-field">
+              <label for="">Mese estivo</label>
+              <input type="checkbox" id="" />
+            </div>
+          </fieldset>
+        </fieldset>
+      </div>
+      <!--FOOTER-->
+      <footer>
+        <div class="left">
+          <button
+            type="button"
+            id="btnCalcola"
+            icon="calc"
+            onclick="btnCalcola_Click()"
+          >
+            Calcola prezzo
+          </button>
+        </div>
+        <div class="right">
+          <div class="total" id="lblTotale">0.00 EUR</div>
+        </div>
+      </footer>
+    </form>
+  </body>
+</html>
