@@ -1,63 +1,30 @@
 "use strict";
 
-function BtnCalcola_click() {
+function BtnCalcola_Click() {
   //dichiarazioni
   let CostoSettore;
   let MaggiorazionePartita;
   let RiduzioneSpettatore;
   let ScontoHandicap;
-  let Imonibile;
-  let Imponibile2;
+  let ScontoCarta;
+  let Imponibile;
   let Totale;
 
   //assegnazioni
   //tipo
-  let SltTipoSettore = document.getElementById("SltTipoSettore");
-  let SltTipoPartita = document.getElementById("SltTipoPartita");
-  let SltTipoSpettatore = document.getElementById("SltTipoSpettatore");
+  let SelectTipoSettore = document.getElementById("SelectTipoSettore");
+  let SelectTipoPartita = document.getElementById("SelectTipoPartita");
+  let SelectTipoSpettatore = document.getElementById("SelectTipoSpettatore");
   //checkbox
   let ChkHandicap = document.getElementById("ChkHandicap");
   let ChkCarta = document.getElementById("ChkCarta");
   //totale
-  let LblTotale = documnt.getElementById("LblTotale");
+  let LblTotale = document.getElementById("LblTotale");
 
   //calcoli
-  //region costo settore
-  if (SltTipoSettore.value == 0) {
-    CostoSettore = 50;
-  } else if (SltTipoSettore.value == 1) {
-    CostoSettore = 35;
-  } else if (SltTipoSettore.value == 2) {
-    CostoSettore = 150;
-  } else if (SltTipoSettore.value == 3) {
-    CostoSettore = 110;
-  } else if (SltTipoSettore.value == 4) {
-    CostoSettore = 90;
-  } else {
-    CostoSettore = 80;
-  }
-
-  //region maggiorazione partita
-  if (SltTipoPartita.value == 0) {
-    MaggiorazionePartita = (CostoSettore * 30) / 100;
-  } else if (SltTipoPartita.value == 1) {
-    MaggiorazionePartita = (CostoSettore * 0) / 100;
-  } else if (SltTipoPartita.value == 2) {
-    MaggiorazionePartita = (CostoSettore * 20) / 100;
-  } else {
-    MaggiorazionePartita = (CostoSettore * 40) / 100;
-  }
-
-  //region riduzione spettatore
-  if (SltTipoSpettatore.value == 0) {
-    RiduzioneSpettatore = (CostoSettore * 0) / 100;
-  } else if (SltTipoSpettatore.value == 1) {
-    RiduzioneSpettatore = (CostoSettore * 30) / 100;
-  } else if (SltTipoSpettatore.value == 2) {
-    RiduzioneSpettatore = (CostoSettore * 20) / 100;
-  } else {
-    RiduzioneSpettatore = (CostoSettore * 45) / 100;
-  }
+  CostoSettore = CalcoloCostoSettore(SelectTipoSettore);
+  MaggiorazionePartita = CalcoloMaggiorazionePartita(SelectTipoPartita);
+  RiduzioneSpettatore = CalcoloRiduzioneSpettatore(SelectTipoSpettatore);
 
   //checkbox Handicap
   if (ChkHandicap.checked) {
@@ -66,25 +33,85 @@ function BtnCalcola_click() {
     ScontoHandicap = 0;
   }
 
-  Imponibile =
-    CostoSettore + MaggiorazionePartita - RiduzioneSpettatore - ScontoHandicap;
+  Imponibile = CostoSettore + MaggiorazionePartita - RiduzioneSpettatore - ScontoHandicap;
 
   //checkbox Carta
   if (ChkCarta.checked) {
-    ScontoCarta = (Imponibile * 22) / 100;
+    ScontoCarta = CalcolaPercentuale(Imponibile, 5);
   } else {
     ScontoCarta = 0;
   }
 
-  Imponibile2 = Imponibile - ScontoCarta;
+  Imponibile = Imponibile - ScontoCarta;
 
-  Totale = Imponibile + Imponibile2;
+  Totale = Imponibile + CalcolaPercentuale(Imponibile, 22);
 
   //risultato
   LblTotale.textContent = Totale.toFixed(2) + "EUR";
 }
 
+function CalcoloCostoSettore(SelectTipoSettore) {
+  //region costo settore
+  let CostoSettore;
+
+  if (SelectTipoSettore.value == 0) {
+    CostoSettore = 50;
+  } else if (SelectTipoSettore.value == 1) {
+    CostoSettore = 35;
+  } else if (SelectTipoSettore.value == 2) {
+    CostoSettore = 150;
+  } else if (SelectTipoSettore.value == 3) {
+    CostoSettore = 110;
+  } else if (SelectTipoSettore.value == 4) {
+    CostoSettore = 90;
+  } else {
+    CostoSettore = 80;
+  }
+
+  return CostoSettore;
+}
+
+function CalcoloMaggiorazionePartita(SelectTipoPartita) {
+  //region maggiorazione partita
+  let MaggiorazionePartita;
+  let CostoSettore;
+
+  if (SelectTipoPartita.value == 0) {
+    MaggiorazionePartita = CalcolaPercentuale(CostoSettore, 30);
+  } else if (SelectTipoPartita.value == 1) {
+    MaggiorazionePartita = 0;
+  } else if (SelectTipoPartita.value == 2) {
+    MaggiorazionePartita = CalcolaPercentuale(CostoSettore, -20); // è una riduzione perchè c'è il -
+  } else {
+    MaggiorazionePartita = CalcolaPercentuale(CostoSettore, 40);
+  }
+
+  return MaggiorazionePartita;
+}
+
+function CalcoloRiduzioneSpettatore(SelectTipoSpettatore) {
+  //region riduzione spettatore
+  let RiduzioneSpettatore;
+  let CostoSettore;
+
+  if (SelectTipoSpettatore.value == 0) {
+    RiduzioneSpettatore = 0;
+  } else if (SelectTipoSpettatore.value == 1) {
+    RiduzioneSpettatore = CalcolaPercentuale(CostoSettore, 30);
+  } else if (SelectTipoSpettatore.value == 2) {
+    RiduzioneSpettatore = CalcolaPercentuale(CostoSettore, 20);
+  } else {
+    RiduzioneSpettatore = CalcolaPercentuale(CostoSettore, 45);
+  }
+
+  return RiduzioneSpettatore;
+}
+
+function CalcolaPercentuale(valore, perc) {
+  return (valore * perc) / 100;
+}
+
 function DisabilitaAbilitaSconti(checkbox) {
   let GrpSconti = document.getElementById("GrpSconti");
-  GrpSconti.disabled = checkbox.checked == true ? true : false;
+  GrpSconti.disabled = checkbox.checked;
 }

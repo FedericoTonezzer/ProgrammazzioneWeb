@@ -2,8 +2,10 @@
 <html>
   <head>
     <link rel="stylesheet" href="../css/common.css" />
-    <script src="./js/es.4js"></script>
+    <script src="../js/utils/textutils.js"></script>
     <script src="../js/utils/formutils.js"></script>
+    <script src="./js/es4.js"></script>
+
     <title>Calcolo biglietto</title>
   </head>
   <body>
@@ -16,62 +18,53 @@
       </header>
       <!--COMPONENTI DEL FORM-->
       <div>
-        <div class="cols">
-          <div class="select-field">
-            <label for="SelectTpoSettore">Tipo Settore</label>
-            <select id="SelectTpoSettore">
-              <option value="" selected disabled>Curva primo anello</option>
-              <option value="">Curva secondo anello</option>
-              <option value="">Tribuna centrale primo anello</option>
-              <option value="">Tribuna centrale secondo anello</option>
-              <option value="">Tribuna laterale primo anello</option>
-              <option value="">Tribuna laterale secondo anello</option>
-            </select>
-          </div>
+        <div class="select-field">
+          <label for="SelectTipoSettore">Tipo Settore</label>
+          <select id="SelectTipoSettore" required>
+            <option value="0" selected>Curva primo anello</option>
+            <option value="1">Curva secondo anello</option>
+            <option value="2">Tribuna centrale primo anello</option>
+            <option value="3">Tribuna centrale secondo anello</option>
+            <option value="4">Tribuna laterale primo anello</option>
+            <option value="5">Tribuna laterale secondo anello</option>
+          </select>
         </div>
-        <div>
+        <fieldset class="cols noborder" id="GrpSconti">
           <div class="select-field">
             <label for="SelectTipoPartita">Tipo Partita</label>
             <select id="SelectTipoPartita">
-              <option value="" selected disabled>Campionato squadre top</option>
-              <option value="">Campionato squadre normal</option>
-              <option value="">Campionato squadre low level</option>
-              <option value="">Champions league</option>
+              <option value="0" selected>Campionato squadre top</option>
+              <option value="1">Campionato squadre normal</option>
+              <option value="2">Campionato squadre low level</option>
+              <option value="3">Champions league</option>
             </select>
           </div>
           <div class="select-field">
             <label for="SelectTipoSpettatore">Tipo Spettatore</label>
             <select id="SelectTipoSpettatore">
-              <option value="" selected disabled>Adulto</option>
-              <option value="">Donna</option>
-              <option value="">Under 24</option>
-              <option value="">Under 16</option>
+              <option value="0" selected>Adulto</option>
+              <option value="1">Donna</option>
+              <option value="2">Under 24</option>
+              <option value="3">Under 16</option>
             </select>
           </div>
+        </fieldset>
+        <div class="checkbox-field">
+          <label for="ChkHandicap">Portatore di handicap</label>
+          <input type="checkbox" id="ChkHandicap" onchange="DisabilitaAbilitaSconti(this)" />
         </div>
         <div class="checkbox-field">
-          <label for="">Portatore di handicap</label>
-          <input type="checkbox" id="" />
-        </div>
-        <div class="checkbox-field">
-          <label for="">Pagamento con carta di credito</label>
-          <input type="checkbox" id="" />
+          <label for="ChkCarta">Pagamento con carta di credito</label>
+          <input type="checkbox" id="ChkCarta" />
         </div>
       </div>
       <!--FOOTER-->
       <footer>
         <div class="left">
-          <button
-            type="button"
-            id="btnCalcola"
-            icon="calc"
-            onclick="btnCalcola_Click()"
-          >
-            Calcola prezzo
-          </button>
+          <button type="button" id="btnCalcola" icon="calc" onclick="BtnCalcola_Click()">Calcola prezzo</button>
         </div>
         <div class="right">
-          <div class="total" id="lblTotale">0.00 EUR</div>
+          <div class="total" id="LblTotale">0.00 EUR</div>
         </div>
       </footer>
     </form>
