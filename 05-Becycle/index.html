@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/common.css" />
+    <script src="../js/utils/textutils.js"></script>
+    <script src="../js/utils/formutils.js"></script>
+    <script src="./js/es5.js"></script>
+
+    <title>Becycle</title>
+  </head>
+  <body>
+    <form class="container">
+      <!--HEADER-->
+      <header>
+        <div class="title center">
+          <h2>Calcolo bici</h2>
+        </div>
+      </header>
+      <!--COMPONENTI DEL FORM-->
+      <div>
+        <div class="input-field">
+          <label for="TxtPrezzoBase">Prezzo base bici</label>
+          <input type="number" id="" min="0" max="1000" value="0" required onblur="validateNumberField(this)" />
+        </div>
+        <fieldset class="cols noborder" id="GrpSconti">
+          <div class="select-field">
+            <label for="SltTipoVersionse">Versione Bici</label>
+            <select id="SltTipoVersionse">
+              <option value="0" selected>Versione Economy</option>
+              <option value="1">Versione Young</option>
+              <option value="2">Versione Sport</option>
+              <option value="3">Versione Business</option>
+              <option value="4">Versione Lux</option>
+            </select>
+          </div>
+          <div class="select-field">
+            <label for="SltTipoSella">Tipo Sella</label>
+            <select id="SltTipoSella">
+              <option value="0" selected>Sella Standard</option>
+              <option value="1">Sella Speedy</option>
+              <option value="2">Sella Confort</option>
+              <option value="3">Sella Top</option>
+            </select>
+          </div>
+        </fieldset>
+        <div class="checkbox-field">
+          <label for="ChkIlluminazione">desideri illuminazione "Extra lux"</label>
+          <input type="checkbox" id="ChkIlluminazione" onchange="DisabilitaAbilitaSconti(this)" />
+        </div>
+        <div class="checkbox-field">
+          <label for="ChkCarta">Pagamento con carta di credito</label>
+          <input type="checkbox" id="ChkCarta" />
+        </div>
+      </div>
+      <!--FOOTER-->
+      <footer>
+        <div class="left">
+          <button type="button" id="btnCalcola" icon="calc" onclick="BtnCalcola_Click()">Calcola prezzo</button>
+        </div>
+        <div class="right">
+          <div class="total" id="LblTotale">0.00 EUR</div>
+        </div>
+      </footer>
+    </form>
+  </body>
+</html>
