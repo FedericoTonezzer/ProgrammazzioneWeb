@@ -11,32 +11,37 @@ function BtnCalcola_Click() {
   let Totale;
 
   //assegnazioni
+  //textbox
+  let TxtPrezzoBase = document.getElementById("TxtPrezzoBase");
   //tipo
   let SelectTipoVerisone = document.getElementById("SelectTipoVerisone");
   let SelectTipoSella = document.getElementById("SelectTipoSella");
   //checkbox
-  let ChkHandicap = document.getElementById("ChkHandicap");
+  let ChkIlluminazione = document.getElementById("ChkIlluminazione");
   let ChkCarta = document.getElementById("ChkCarta");
   //totale
   let LblTotale = document.getElementById("LblTotale");
 
   //calcoli
-  CostoSettore = CalcoloCostoSettore(SelectTipoSettore);
-  MaggiorazionePartita = CalcoloMaggiorazionePartita(SelectTipoPartita);
-  RiduzioneSpettatore = CalcoloRiduzioneSpettatore(SelectTipoSpettatore);
+  MaggiorazioneTipoVersione = CalcoloMaggiorazioneVersione(SelectTipoVersione);
+  MaggiorazioneTipoSella = CalcoloMaggiorazioneSella(SelectTipoSella);
 
-  //checkbox Handicap
-  if (ChkHandicap.checked) {
-    ScontoHandicap = (CostoSettore * 50) / 100;
+  //checkbox illuminazione
+  if (ChkIlluminazione.checked) {
+    ChkIlluminazione = (Prezzobase * 7) / 100;
   } else {
-    ScontoHandicap = 0;
+    ScontoIlluminazione = 0;
   }
 
-  Imponibile = CostoSettore + MaggiorazionePartita - RiduzioneSpettatore - ScontoHandicap;
+  Imponibile =
+    PrezzoBase +
+    MaggiorazioneTipoVersione +
+    MaggiorazioneTipoSella -
+    ScontoIlluminazione;
 
   //checkbox Carta
   if (ChkCarta.checked) {
-    ScontoCarta = CalcolaPercentuale(Imponibile, 5);
+    ScontoCarta = CalcolaPercentuale(Imponibile, 3);
   } else {
     ScontoCarta = 0;
   }
@@ -49,61 +54,42 @@ function BtnCalcola_Click() {
   LblTotale.textContent = Totale.toFixed(2) + "EUR";
 }
 
-function CalcoloCostoSettore(SelectTipoSettore) {
-  //region costo settore
-  let CostoSettore;
+function CalcoloMaggiorazioneVersione(SelectTipoVerisone) {
+  //region MaggiorazioneTipoVersione
+  let MaggiorazioneTipoVersione;
+  let PrezzoBase;
 
-  if (SelectTipoSettore.value == 0) {
-    CostoSettore = 50;
-  } else if (SelectTipoSettore.value == 1) {
-    CostoSettore = 35;
-  } else if (SelectTipoSettore.value == 2) {
-    CostoSettore = 150;
-  } else if (SelectTipoSettore.value == 3) {
-    CostoSettore = 110;
-  } else if (SelectTipoSettore.value == 4) {
-    CostoSettore = 90;
+  if (SelectTipoVerisone.value == 0) {
+    MaggiorazioneTipoVersione = 0;
+  } else if (SelectTipoVerisone.value == 1) {
+    MaggiorazioneTipoVersione = CalcolaPercentuale(PrezzoBase, -5); // è una riduzione perchè c'è il -
+  } else if (SelectTipoVerisone.value == 2) {
+    MaggiorazioneTipoVersione = CalcolaPercentuale(PrezzoBase, 10);
+  } else if (SelectTipoVerisone.value == 3) {
+    MaggiorazioneTipoVersione = CalcolaPercentuale(PrezzoBase, 15);
   } else {
-    CostoSettore = 80;
+    MaggiorazioneTipoVersione = CalcolaPercentuale(PrezzoBase, 25);
   }
 
-  return CostoSettore;
+  return MaggiorazioneTipoVersione;
 }
 
-function CalcoloMaggiorazionePartita(SelectTipoPartita) {
-  //region maggiorazione partita
-  let MaggiorazionePartita;
-  let CostoSettore;
+function CalcoloMaggiorazioneSella(SelectTipoSella) {
+  //region MaggiorazioneTipoSella
+  let MaggiorazioneTipoSella;
+  let PrezzoBase;
 
-  if (SelectTipoPartita.value == 0) {
-    MaggiorazionePartita = CalcolaPercentuale(CostoSettore, 30);
-  } else if (SelectTipoPartita.value == 1) {
-    MaggiorazionePartita = 0;
-  } else if (SelectTipoPartita.value == 2) {
-    MaggiorazionePartita = CalcolaPercentuale(CostoSettore, -20); // è una riduzione perchè c'è il -
+  if (SelectTipoSella.value == 0) {
+    MaggiorazioneTipoSella = 0;
+  } else if (SelectTipoSella.value == 1) {
+    MaggiorazioneTipoSella = CalcolaPercentuale(PrezzoBase, -5); // è una riduzione perchè c'è il -
+  } else if (SelectTipoSella.value == 2) {
+    MaggiorazioneTipoSella = CalcolaPercentuale(PrezzoBase, 20);
   } else {
-    MaggiorazionePartita = CalcolaPercentuale(CostoSettore, 40);
+    MaggiorazioneTipoSella = CalcolaPercentuale(PrezzoBase, 30);
   }
 
-  return MaggiorazionePartita;
-}
-
-function CalcoloRiduzioneSpettatore(SelectTipoSpettatore) {
-  //region riduzione spettatore
-  let RiduzioneSpettatore;
-  let CostoSettore;
-
-  if (SelectTipoSpettatore.value == 0) {
-    RiduzioneSpettatore = 0;
-  } else if (SelectTipoSpettatore.value == 1) {
-    RiduzioneSpettatore = CalcolaPercentuale(CostoSettore, 30);
-  } else if (SelectTipoSpettatore.value == 2) {
-    RiduzioneSpettatore = CalcolaPercentuale(CostoSettore, 20);
-  } else {
-    RiduzioneSpettatore = CalcolaPercentuale(CostoSettore, 45);
-  }
-
-  return RiduzioneSpettatore;
+  return MaggiorazioneTipoSella;
 }
 
 function CalcolaPercentuale(valore, perc) {
