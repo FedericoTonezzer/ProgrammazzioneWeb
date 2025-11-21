@@ -1,0 +1,1 @@
+Inserito il nome e cognome di ogni persona, creare un oggetto Persona e una tabella che ne mostra i risultati

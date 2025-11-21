@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css/es9.css" />
+    
+    <title>Persone</title>
+  </head>
+  <body class="centred">
+    <form class="container" id="form">
+      <header>
+        <div class="title center">
+          <h2 class="bold">Persone</h2>
+        </div>
+      </header>
+
+      <!-- Componenti del form -->
+      <div>
+        <!-- Codice fiscale -->
+        <div class="cols">
+          <div class="input-field">
+            <label for="txtCodiceFiscale">Codice Fiscale</label>
+            <input type="text" id="txtCodiceFiscale" placeholder="Inserire il codice fiscale 16 caratteri" onblur="validateCodiceFiscale(this)" required />
+          </div>
+        </div>
+
+        <!-- Nome -->
+        <div class="cols">
+          <div class="input-field">
+            <label for="txtNome">Nome</label>
+            <input type="text" id="txtNome" placeholder="Inserire il nome" onblur="validateTextField(this)" required />
+          </div>
+        </div>
+
+        <!-- Cognome -->
+        <div class="cols">
+          <div class="input-field">
+            <label for="txtCognome">Cognome</label>
+            <input type="text" id="txtCognome" placeholder="Inserire il cognome" onblur="validateTextField(this)" required />
+          </div>
+        </div>
+
+        <div class="cols">
+          <button type="button" id="btnInserisci" icon="add" onclick="btnInserisci_click()">Inserisci</button>
+        </div>
+
+        <div class="cols">
+          <!-- Tabella persone -->
+          <table id="tblPersone">
+            <thead>
+              <tr>
+                <th>Codice Fiscale</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="3">Nessun dato</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
