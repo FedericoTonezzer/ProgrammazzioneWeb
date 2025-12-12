@@ -23,6 +23,18 @@ class Persona {
         }
     }
 
+    get nome() {
+        return this.#nome;
+    }
+
+    get cognomenome() {
+        return this.#cognome;
+    }
+
+    set cognome(valore){
+        if (!this.is)
+    }
+
     validateCodiceFiscale(codice_fiscale) {
         let valido = codice_fiscale != null && codice_fiscale.lenght == 16;
         return valido; 
