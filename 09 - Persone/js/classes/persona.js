@@ -16,19 +16,39 @@ class Persona {
     }
 
     set codice_fiscale(valore) {
-        if(validateCodiceFiscale(valore)){
-            this.#codice_fiscale = valore,
+        if(this.validateCodiceFiscale(valore)){
+            this.#codice_fiscale = valore;
         } else{
             throw new Error("Il codice fisclae non è valido")
         }
+    }
+
+    get nome_cognome() {
+        return this.nome + " " + this.cognome;
     }
 
     get nome() {
         return this.#nome;
     }
 
-    get cognomenome() {
+    set nome(valore) {
+        if(!this.isNullOrEmpty(valore)){
+            this.#nome = valore;
+        } else{
+            throw new Error("Il nome è obbligatorio")
+        }
+    }
+
+    get cognome() {
         return this.#cognome;
+    }
+
+    set cognome(valore) {
+        if(!this.isNullOrEmpty(valore)){
+            this.#cognome = valore;
+        } else{
+            throw new Error("Il cognome è obbligatorio")
+        }
     }
 
     set cognome(valore){
