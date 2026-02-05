@@ -25,13 +25,25 @@
         <!-- ID_prodotto -->
         <div class="input-field">
           <label for="txtIdProdotto">ID prodotto</label>
-          <input type="text" id="txtIdProdotto" placeholder="Inserire il codice del prodotto" onblur="ValidateText(this)" required />
+          <input
+            type="text"
+            id="txtIdProdotto"
+            placeholder="Inserire il codice del prodotto"
+            onblur="ValidateText(this)"
+            required
+          />
         </div>
 
         <!-- nome_prodototto -->
         <div class="input-field">
           <label for="txtNomeProdotto">Nome prodotto</label>
-          <input type="text" id="txtNomeProdotto" placeholder="Inserire il nome del prodotto" onblur="ValidateText(this)" required />
+          <input
+            type="text"
+            id="txtNomeProdotto"
+            placeholder="Inserire il nome del prodotto"
+            onblur="ValidateText(this)"
+            required
+          />
         </div>
       </div>
 
@@ -39,19 +51,38 @@
         <!-- prezzo_unitario -->
         <div class="input-field">
           <label for="txtPrezzoUnitario">prezzo unitario</label>
-          <input type="text" id="txtPrezzoUnitario" placeholder="Inserire il prezzo unitario del prodotto" onblur="ValidateText(this)" required />
+          <input
+            type="text"
+            id="txtPrezzoUnitario"
+            placeholder="Inserire il prezzo unitario del prodotto"
+            onblur="ValidateText(this)"
+            required
+          />
         </div>
 
         <!-- quantità -->
-        <div class="input-field">
-          <label for="txtQuantita">Quantità</label>
-          <input type="number" id="txtQuantita" placeholder="Inserire nua quantita del prodotto" required />
+        <div class="select-field">
+          <label for="txtQuantita">quantita</label>
+          <select id="txtQuantita">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
         </div>
       </div>
 
       <!-- Bottone inserisci -->
       <div class="cols">
-        <button type="button" id="btnInserisci" icon="add" onclick="btnInserisci_click()">Inserisci</button>
+        <button
+          type="button"
+          id="btnInserisci"
+          icon="add"
+          onclick="btnInserisci_click()"
+        >
+          Inserisci
+        </button>
       </div>
 
       <!-- Tabella prodotti -->

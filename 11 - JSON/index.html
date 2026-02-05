@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="./css/es11.css" />
+		<script src="../js/utils/textutils.js"></script>
+		<script src="../js/utils/formutils.js"></script>
+		<script src="./js/classes/persone.js"></script>
+		<script src="./js/classes/persona.js"></script>
+		<script src="./js/es11.js"></script>
+		<title>JSON ed Eventi</title>
+	</head>
+	<body class="centred">
+		<form class="container" id="form">
+			<header>
+				<div class="title center">
+					<h2 class="bold">JSON ed Eventi</h2>
+				</div>
+			</header>
+
+			<!-- Componenti del form -->
+			<div>
+				<div class="cols">
+					<!-- Tabella persone -->
+					<table id="tblPersone">
+						<thead>
+							<tr>
+								<th>Codice Fiscale</th>
+								<th>Nome</th>
+								<th>Cognome</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="3">Nessun dato</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- Fieldset dettagli -->
+				<fieldset class="noborder">
+					<legend>Dettagli utente</legend>
+					<div class="cols">
+						<!-- Codice fiscale -->
+						<div class="input-field">
+							<label for="txtCodiceFiscale">Codice Fiscale</label>
+							<input type="text" id="txtCodiceFiscale" disabled />
+						</div>
+
+						<!-- Nome -->
+						<div class="input-field">
+							<label for="txtNome">Nome</label>
+							<input type="text" id="txtNome" disabled />
+						</div>
+
+						<!-- Cognome -->
+						<div class="input-field">
+							<label for="txtCognome">Cognome</label>
+							<input type="text" id="txtCognome" disabled />
+						</div>
+					</div>
+
+					<div class="cols">
+						<!-- Sesso -->
+						<div class="select-field">
+							<label for="selectSesso">Sesso</label>
+							<select id="selectSesso" disabled>
+								<option>M</option>
+								<option>F</option>
+							</select>
+						</div>
+
+						<!-- Reddito -->
+						<div class="input-field">
+							<label for="txtReddito">Reddito</label>
+							<input type="text" id="txtReddito" disabled />
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</form>
+	</body>
+</html>

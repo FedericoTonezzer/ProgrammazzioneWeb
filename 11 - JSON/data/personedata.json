@@ -1,0 +1,149 @@
+[
+	{
+		"codice_fiscale": "RSSMRA85M01H501I",
+		"nome": "Marco",
+		"cognome": "Rossi",
+		"sesso": "M",
+		"reddito": 28000
+	},
+	{
+		"codice_fiscale": "VRNGPP80A01H501F",
+		"nome": "Giulia",
+		"cognome": "Verdi",
+		"sesso": "F",
+		"reddito": 25000
+	},
+	{
+		"codice_fiscale": "BNCMRA75B02H501K",
+		"nome": "Anna",
+		"cognome": "Bianchi",
+		"sesso": "F",
+		"reddito": 35000
+	},
+	{
+		"codice_fiscale": "LRSMRO80C03H501N",
+		"nome": "Luca",
+		"cognome": "Laurenti",
+		"sesso": "M",
+		"reddito": 18000
+	},
+	{
+		"codice_fiscale": "VLLMRA75D04H501R",
+		"nome": "Maria",
+		"cognome": "Valli",
+		"sesso": "F",
+		"reddito": 22000
+	},
+	{
+		"codice_fiscale": "FGNLLA85E05H501S",
+		"nome": "Alessandro",
+		"cognome": "Ferrari",
+		"sesso": "M",
+		"reddito": 48000
+	},
+	{
+		"codice_fiscale": "VNNLRA90F06H501L",
+		"nome": "Giovanna",
+		"cognome": "Vannucci",
+		"sesso": "F",
+		"reddito": 50000
+	},
+	{
+		"codice_fiscale": "PNNGCC95G07H501M",
+		"nome": "Chiara",
+		"cognome": "Penna",
+		"sesso": "F",
+		"reddito": 32000
+	},
+	{
+		"codice_fiscale": "BNCPPP75H08H501T",
+		"nome": "Fabio",
+		"cognome": "Bianco",
+		"sesso": "M",
+		"reddito": 24000
+	},
+	{
+		"codice_fiscale": "LCCGPP80I09H501P",
+		"nome": "Simona",
+		"cognome": "Lucci",
+		"sesso": "F",
+		"reddito": 43000
+	},
+	{
+		"codice_fiscale": "SSMGPP75L10H501Q",
+		"nome": "Elena",
+		"cognome": "Sasso",
+		"sesso": "F",
+		"reddito": 36000
+	},
+	{
+		"codice_fiscale": "FRRMRA70M11H501U",
+		"nome": "Paolo",
+		"cognome": "Ferrari",
+		"sesso": "M",
+		"reddito": 43000
+	},
+	{
+		"codice_fiscale": "LNNGPP85N12H501V",
+		"nome": "Marco",
+		"cognome": "Luna",
+		"sesso": "M",
+		"reddito": 38000
+	},
+	{
+		"codice_fiscale": "NLLPPP90O13H501W",
+		"nome": "Laura",
+		"cognome": "Neri",
+		"sesso": "F",
+		"reddito": 70000
+	},
+	{
+		"codice_fiscale": "PPNPPP85P14H501X",
+		"nome": "Davide",
+		"cognome": "Parrini",
+		"sesso": "M",
+		"reddito": 55000
+	},
+	{
+		"codice_fiscale": "BNNGPP80Q15H501Y",
+		"nome": "Silvia",
+		"cognome": "Bianchini",
+		"sesso": "F",
+		"reddito": 37000
+	},
+	{
+		"codice_fiscale": "FRRMRA75R16H501Z",
+		"nome": "Andrea",
+		"cognome": "Ferri",
+		"sesso": "M",
+		"reddito": 26000
+	},
+	{
+		"codice_fiscale": "VLLPPP70S17H501A",
+		"nome": "Giorgio",
+		"cognome": "Valli",
+		"sesso": "M",
+		"reddito": 28000
+	},
+	{
+		"codice_fiscale": "VVNMRA95T18H501B",
+		"nome": "Marta",
+		"cognome": "Vitale",
+		"sesso": "F",
+		"reddito": 32000
+	},
+	{
+		"codice_fiscale": "GGNPPP80U19H501C",
+		"nome": "Roberto",
+		"cognome": "Gallo",
+		"sesso": "M",
+		"reddito": 18000
+	},
+	{
+		"codice_fiscale": "SSNGPP85V20H501D",
+		"nome": "Elisa",
+		"cognome": "Santoro",
+		"sesso": "F",
+		"reddito": 25000
+	}
+]

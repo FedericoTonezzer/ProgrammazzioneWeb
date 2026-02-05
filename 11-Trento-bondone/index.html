@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css11.css" />
+    <script src="../js/utils/formutils.js"></script>
+    <script src="../js/utils/textutils.js"></script>
+    <script src="./js/classes/pilota.js"></script>
+    <script src="./js/classes/piloti.js"></script>
+    <script src="./js/es11.js"></script>
+
+    <title>Trento-Bondone</title>
+  </head>
+  <body>
+    <form class="container">
+      <!--header-->
+      <header>
+        <div class="title center">
+          <h2>Trento-Bondone</h2>
+        </div>
+      </header>
+      <!--componenti della form-->
+      <div class="cols">
+        <div class="select-field">
+          <label for="txtNrPartecipante">Nr partecipante</label>
+          <select id="txtNrPartecipante" required></select>
+        </div>
+        <div class="input-field">
+          <label for="txtNome">Nome</label>
+          <input type="text" id="txtNome" placeholder="inserire il nome del prtecipante" required />
+        </div>
+        <div class="input-field">
+          <label for="txtCognome">Cognome</label>
+          <input type="text" id="txtCognome" placeholder="inserire il cognome del prtecipante" required />
+        </div>
+      </div>
+      <div class="cols">
+        <div class="input-field">
+          <label for="txtTempoLibere1">Tempo libere 1 (sec)</label>
+          <input type="number" id="txtTempoLibere1" placeholder="inserire il tempo della prima prova" required />
+        </div>
+        <div class="input-field">
+          <label for="txtTempoLibere2">Tempo libere 2 (sec)</label>
+          <input type="number" id="txtTempoLibere2" placeholder="inserire il tempo della seconda prova" required />
+        </div>
+        <div class="input-field">
+          <label for="txtTempoGara">Tempo gara (sec)</label>
+          <input type="number" id="txtTempoGara" placeholder="inserire il tempo della gara" required />
+        </div>
+      </div>
+      <div>
+        <button type="button" id="btnInserisci" icon="add" onclick="BtnInserisci_click()">INSERISCI</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Libere 1</th>
+            <th>Libere 2</th>
+            <th>Gara</th>
+            <th>Media</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="7">Nessun dato</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </body>
+</html>

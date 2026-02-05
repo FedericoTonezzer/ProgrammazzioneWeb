@@ -1,0 +1,2 @@
+Scaricare il file JSON dalla risorsa locale o remota e presentarne i dati in tabella
+Al click su una riga, riempire il form con i suoi dettagli

@@ -16,4 +16,7 @@ class Prodotti {
   //create --> crea un nuovo elemento prodotto
 
   //get --> prendi l'indice della lista
+  get(index) {
+    return this.prodotti[index];
+  }
 }

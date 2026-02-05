@@ -1,0 +1,6 @@
+@import url(../../css/common.css);
+
+.container {
+	min-width: 600px;
+	min-height: 0;
+}
